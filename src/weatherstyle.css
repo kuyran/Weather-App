@@ -1,7 +1,11 @@
+.topbuffer {
+  margin: 80px;
+}
+
 .mainbox {
   width: 65%;
   display: block;
-  margin: 100px auto;
+  margin: 10px auto;
   padding: 25px;
   border-radius: 10px;
   background-color: rgb(241, 244, 248);
@@ -46,4 +50,9 @@
 
 .descToday {
   text-transform: capitalize;
+}
+
+.sourcecode {
+  text-align: center;
+  font-size: 12px;
 }
