@@ -1,0 +1,49 @@
+.mainbox {
+  width: 65%;
+  display: block;
+  margin: 100px auto;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: rgb(241, 244, 248);
+  box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
+}
+
+.forecastTemp {
+  text-align: center;
+}
+
+.forecastIcon {
+  color: #0dcaf0;
+  font-size: 40px;
+  padding: 20px 0;
+}
+
+.currentIcon {
+  color: #0dcaf0;
+  font-size: 40px;
+  padding: 20px 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.todayTemp {
+  font-size: 65px;
+}
+
+.far {
+  align-items: right;
+}
+
+.fandc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  font-weight: bold;
+}
+
+.descToday {
+  text-transform: capitalize;
+}
