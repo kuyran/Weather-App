@@ -87,7 +87,8 @@ cityLoc.addEventListener("submit", showCity);
 function getLoc(response) {
   //LOCATION:
   let location = response.data.name;
-  let locDisplay = `<strong>${location}</stong>`;
+  let locCountry = response.data.sys.country;
+  let locDisplay = `<strong>${location}, ${locCountry}</stong>`;
   let coordLocation = document.querySelector("#location");
   coordLocation.innerHTML = locDisplay;
 
@@ -181,3 +182,18 @@ function getTempVal() {
   const currVal = parseInt(document.querySelector("#today-temp").textContent);
   return currVal;
 }
+
+//AUTO LOAD TEMP:
+function autoLoad(response) {
+  let autoloadcity = response;
+  //console.log(autoloadcity);
+  let autocityLocation = document.querySelector("#location");
+  autocityLocation.innerHTML = autoloadcity;
+  let autoURL = `https://api.openweathermap.org/data/2.5/weather?q=${autoloadcity}&units=imperial&appid=0ebc654fccbc00189d5408f3d6f15b08`;
+  console.log(autoURL);
+
+  axios.get(autoURL).then(getLoc);
+}
+
+//autoLoad();
+autoLoad("New York");
