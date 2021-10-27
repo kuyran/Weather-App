@@ -42,7 +42,7 @@
                 checked
               />
              
- <label class="btn btn-outline-info btn-sm selected-unit" for="btnradio1" id="farbutton"
+ <label class="btn btn-outline-secondary btn-sm selected-unit" for="btnradio1" id="farbutton"
                 >°F</label
               >
 
@@ -53,7 +53,7 @@
                 id="btnradio2"
                 autocomplete="off"
               />
-              <label class="btn btn-outline-info btn-sm" for="btnradio2" id="celbutton"
+              <label class="btn btn-outline-secondary btn-sm" for="btnradio2" id="celbutton"
                 >°C</label
               >
 
@@ -92,23 +92,24 @@
         <hr />
 <p>
         <div class="row">
-          <div class="col">
-            <span id="location"><strong>Brooklyn, New York</strong></span>
+          <div class="col right-details">
+            <span class="citylocation" id="location"><strong>Brooklyn, New York</strong></span>
                <br />
             <span id="calendarDate">Tues, Sep 22</span>
             <br/>
             <span id="hourSide"> 12:00 PM</span> 
           </div>
         
-          <div class="col">
+          <div class="col icon-temp">
             <div class="row">
-              <div class="col-3">
-                <i class="fas fa-cloud-sun-rain currentIcon"></i>
+              <div class="col-4 weathericon">
+                <img src="" alt="clear" id="currentweathericon" class="currentIcon">
+                <!--<i class="fas fa-cloud-sun-rain currentIcon" ></i>-->
               </div>
-              <div class="col-9"><h1 class="todayTemp temperature" id="today-temp">45°</h1></div>
+              <div class="col-7"><h1 class="todayTemp temperature" id="today-temp">45°</h1></div>
             </div>
           </div>
-          <div class="col">
+          <div class="col left-details">
             <span id=descToday> Cloudy & Rainy</span>
             <br />
             Humidity: <span id="humidtoday">40</span>%
@@ -124,49 +125,50 @@
           <div class="col forecastTemp">
             SUN
             <br />
-            <i class="fas fa-cloud-moon-rain forecastIcon"></i>
-            <br />
-            75°
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" class="forecast-icon">
+            <br /><span class=forecast>
+            75°</span>
           </div>
           <div class="col forecastTemp">
             MON
             <br />
-            <i class="fas fa-cloud-sun forecastIcon"></i>
+            <!--<i class="fas fa-cloud-sun forecastIcon"></i>-->
+            <img src="http://openweathermap.org/img/wn/11d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>
           <div class="col forecastTemp">
             TUE
             <br />
-            <i class="fas fa-cloud-showers-heavy forecastIcon"></i>
+            <img src="http://openweathermap.org/img/wn/50d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>
           <div class="col forecastTemp">
             WED
             <br />
-            <i class="fas fa-sun forecastIcon"></i>
+            <img src="http://openweathermap.org/img/wn/01d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>
           <div class="col forecastTemp">
             THU
             <br />
-            <i class="fas fa-wind forecastIcon"></i>
+            <img src="http://openweathermap.org/img/wn/02d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>
           <div class="col forecastTemp">
             FRI
             <br />
-            <i class="fas fa-bolt forecastIcon"></i>
+            <img src="http://openweathermap.org/img/wn/09d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>
           <div class="col forecastTemp">
             SAT
             <br />
-            <i class="fas fa-meteor forecastIcon"></i>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" class="forecast-icon">
             <br />
             75°
           </div>

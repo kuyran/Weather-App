@@ -8,7 +8,8 @@
   margin: 10px auto;
   padding: 25px;
   border-radius: 10px;
-  background-color: rgb(241, 244, 248);
+  /*background-color: rgb(241, 244, 248);*/
+  background-color: rgb(255, 255, 255);
   box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
 }
 
@@ -17,13 +18,15 @@
 }
 
 .forecastIcon {
-  color: #0dcaf0;
+  /*color: #0dcaf0;*/
+  color: #48484a;
   font-size: 40px;
   padding: 20px 0;
 }
 
 .currentIcon {
-  color: #0dcaf0;
+  /*color: #0dcaf0;*/
+  color: #48484a;
   font-size: 40px;
   padding: 20px 0;
   margin-top: 0;
@@ -55,4 +58,39 @@
 .sourcecode {
   text-align: center;
   font-size: 12px;
+}
+
+.forecast {
+  text-align: center;
+}
+
+.currentIcon {
+  max-width: 100%;
+  padding-top: 3px;
+}
+
+.icon-temp {
+  padding-top: 5px;
+}
+
+.citylocation {
+  color: #dd7455;
+  font-size: 23px;
+}
+
+.right-details {
+  padding-top: 2px;
+}
+
+.left-details {
+  padding-top: 10px;
+}
+
+.weathericon {
+  padding: 0;
+}
+
+.forecast-icon {
+  max-width: 100%;
+  margin: auto;
 }

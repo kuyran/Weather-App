@@ -1,6 +1,6 @@
 //GET DATE & TIME:
 let currentDate = new Date();
-console.log(currentDate);
+//console.log(currentDate);
 
 function formatDate(date) {
   let dayEqui = [
@@ -76,6 +76,7 @@ function showCity(event) {
   cityLocation.innerHTML = cityDisplay;
   let cityMetric = "imperial";
   let cityURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityDisplay}&units=${cityMetric}&appid=0ebc654fccbc00189d5408f3d6f15b08`;
+  console.log(`${cityURL} - Search by City`);
 
   axios.get(cityURL).then(getLoc);
 }
@@ -83,7 +84,7 @@ function showCity(event) {
 let cityLoc = document.querySelector("#city-form");
 cityLoc.addEventListener("submit", showCity);
 
-//SEARCH BY COORDINATES:
+//GET DATA:
 function getLoc(response) {
   //LOCATION:
   let location = response.data.name;
@@ -116,17 +117,31 @@ function getLoc(response) {
   let descValue = `${descMeasure}`;
   let descDisplay = document.querySelector("#descToday");
   descDisplay.innerHTML = descValue;
+
+  //ICON
+  let currentIcon = response.data.weather[0].icon;
+  console.log(currentIcon);
+  let iconDisplay = document.querySelector("#currentweathericon");
+  iconDisplay.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconDisplay.setAttribute("alt", response.data.weather[0].description);
+  //let iconLink = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`;
+  //descDisplay.innerHTML = iconDisplay;
+  //console.log(iconLink);
 }
 
-//GET LOCATION
+//SEARCH BY COORDS
 function getCoords(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let unit = "imperial"; //apply if statement??
   let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=${unit}`;
-  //console.log(apiUrl);
-  axios.get(apiUrl).then(getLoc);
+  console.log(`${apiUrl} - Search by Coords`);
+
+  axios.get(apiUrl).then(getLoc); //then get forecast?
 }
 
 function getPosition() {
@@ -186,14 +201,12 @@ function getTempVal() {
 //AUTO LOAD TEMP:
 function autoLoad(response) {
   let autoloadcity = response;
-  //console.log(autoloadcity);
   let autocityLocation = document.querySelector("#location");
   autocityLocation.innerHTML = autoloadcity;
   let autoURL = `https://api.openweathermap.org/data/2.5/weather?q=${autoloadcity}&units=imperial&appid=0ebc654fccbc00189d5408f3d6f15b08`;
-  console.log(autoURL);
+  //console.log(autoURL);
 
   axios.get(autoURL).then(getLoc);
 }
 
-//autoLoad();
 autoLoad("New York");
