@@ -94,10 +94,10 @@ function updateForecastData(response) {
             <img src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
             }@2x.png" class="forecast-icon">
-            <br /><span class="forecastmax" id="max">
+            <br /><span class="forecastmax" id="max" data-unit="imperial">
             ${Math.round(
               forecastDay.temp.max
-            )}° |</span> <span class="forecastmin" id="min">
+            )}° |</span> <span class="forecastmin" id="min" data-unit="imperial">
             ${Math.round(forecastDay.temp.min)}°</span>
           </div>`;
     }
@@ -203,8 +203,14 @@ let locButton = document.querySelector("button#locbut");
 locButton.addEventListener("click", getPosition);
 
 //GET UNIT + CONVERT TO F AND C:
+//let fahrenheit = document.querySelector("#farbutton");
+//fahrenheit.addEventListener("click", makeFar);
+
 let fahrenheit = document.querySelector("#farbutton");
-fahrenheit.addEventListener("click", makeFar);
+fahrenheit.addEventListener("click", () => {
+  makeFar();
+  makeForecastFar();
+});
 
 let celsius = document.querySelector("#celbutton");
 celsius.addEventListener("click", makeCel);

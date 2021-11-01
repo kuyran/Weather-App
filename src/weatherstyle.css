@@ -106,3 +106,7 @@ body {
 .forecastmin {
   font-size: 9pt;
 }
+
+.hidden {
+  display: none;
+}
