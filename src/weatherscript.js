@@ -67,6 +67,38 @@ function timeSide(date) {
 let ampmClass = document.querySelector("span#hourSide");
 ampmClass.innerHTML = timeSide(currentDate);
 
+//TEST
+function updateForecastData(response) {
+  console.log(response.data.daily);
+  let forcastArea = document.querySelector("#forecastArea");
+
+  let daysForecast = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  let colForcast = `<div class="row">`;
+  daysForecast.forEach(function (day) {
+    colForcast =
+      colForcast +
+      `<div class="col forecastTemp">
+            ${day}
+            <br />
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" class="forecast-icon">
+            <br /><span class=forecast>
+            75°</span>
+          </div>`;
+  });
+  colForcast = colForcast + `</div>`;
+  forcastArea.innerHTML = colForcast;
+}
+
+//Receive Coords:
+function getForecast(coordinates) {
+  //console.log(coordinates);
+  let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=imperial`;
+  //console.log(apiUrl);
+  axios.get(apiUrl).then(updateForecastData);
+}
+
 //SEARCH BY CITY:
 function showCity(event) {
   event.preventDefault();
@@ -127,16 +159,19 @@ function getLoc(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconDisplay.setAttribute("alt", response.data.weather[0].description);
-  //let iconLink = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`;
-  //descDisplay.innerHTML = iconDisplay;
-  //console.log(iconLink);
+
+  //TEST call outside function
+  //pdateForecastData();
+
+  //Send out Coords & Get Forecast
+  getForecast(response.data.coord);
 }
 
 //SEARCH BY COORDS
 function getCoords(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let unit = "imperial"; //apply if statement??
+  let unit = "imperial";
   let apiKey = `0ebc654fccbc00189d5408f3d6f15b08`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=${unit}`;
   console.log(`${apiUrl} - Search by Coords`);
