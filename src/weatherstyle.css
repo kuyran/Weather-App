@@ -98,3 +98,11 @@ body {
   max-width: 100%;
   margin: auto;
 }
+
+.forecastmax {
+  font-size: 9pt;
+}
+
+.forecastmin {
+  font-size: 9pt;
+}
